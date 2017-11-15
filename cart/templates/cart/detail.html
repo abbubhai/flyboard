@@ -4,8 +4,11 @@
 Your shopping cart
 {% endblock %}
 {% block content %}
-<h1>Your shopping cart</h1>
-<table class="cart">
+
+<div class="container">
+
+    <h1>Your shopping cart</h1>
+<table class="table">
 <thead>
 <tr>
 <th>Image</th>
@@ -22,8 +25,7 @@ Your shopping cart
 <tr>
     <td>
         <a href="{{ product.get_absolute_url }}">
-            <img src="{% if product.image %}{{ product.image.url
-            }}{% else %}{% static 'img/no_image.png' %}{% endif %}">
+            <img class="payment-img" src={% if product.image %}{{ product.image.url}} {% endif %}>
         </a>
     </td>
     <td>
@@ -50,11 +52,14 @@ Your shopping cart
 </tr>
 </tbody>
 </table>
-<p class="text-right">
-    <a href="{% url 'shop:product_list' %}" class="button
-    light">Continue shopping</a>
-    <a href="{% url 'orders:order_create' %}" class="button">
+
+    <p class="text-right">
+    <a href="{% url 'shop:product_list' %}" class="btn btn-primary text-right">Continue shopping</a>
+    <a href="{% url 'orders:order_create' %}" class="btn btn-primary text-right">
         Checkout
     </a>
 </p>
+
+</div>
+
 {% endblock %}

@@ -4,7 +4,9 @@ from cart.cart import Cart
 from .tasks import order_created
 from django.shortcuts import render, redirect
 from django.core.urlresolvers import reverse
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def order_create(request):
     cart = Cart(request)
     if request.method == 'POST':
