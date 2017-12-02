@@ -4,23 +4,7 @@
 {% if category %}{{ category.name }}{% else %}Products{% endif %}
 
 {% block content %}
-<<<<<<< HEAD
- <div id="sidebar">
-    <h3>Categories</h3>
-    <ul>
-        <!--<li {% if not category %}class="selected"{% endif %}>
-            <a href="{% url 'shop:product_list' %}">All</a>
-        </li>
-        -->
-        {% for c in categories %}
-        <li {% if category.slug == c.slug %}class="selected" {% endif %}>
-            <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
-        </li>
-        {% endfor %}
-    </ul>
- </div>
- <div id="main" class="product-list" class="container-fluid">>
-=======
+
 
 
 <!--- slide show code -->
@@ -50,20 +34,11 @@
 
 
  <div id="main" class="product-list" class="container-fluid">
->>>>>>> e1fe10afcfa60fc7c9ca23645e252c6ee64f402c
+
      <h1>{% if category %}{{ category.name }}{% else %}Products{% endif%}</h1>
      <div class="row">
      {% for product in products %}
-<<<<<<< HEAD
-     <div class="item" class="container-fluid">
-          <div class="col-sm-4">
-                  <a href={{ product.get_absolute_url }}>
-                     <img class='main-img' src={% if product.image %}{{ product.image.url }}{% endif %}>
-                  </a>
-                 <br>${{ product.name }}<br>{{ product.price }}
-              </div>
-     </div>
-=======
+
          <div class="col-sm-4">
                <a href={{ product.get_absolute_url }}>
                      <img class='home-img' src={% if product.image %}{{ product.image.url }}{% endif %}>
@@ -74,7 +49,7 @@
                     </div>
 
           </div>
->>>>>>> e1fe10afcfa60fc7c9ca23645e252c6ee64f402c
+
      {% endfor %}
          </div>
  </div>
