@@ -3,7 +3,8 @@
 Checkout
 {% endblock %}
 {% block content %}
-<h1>Checkout</h1>
+<div class="container">
+<h2>Checkout</h2>
 <div class="order-info">
     <h3>Your order</h3>
     <ul>
@@ -16,9 +17,10 @@ Checkout
     </ul>
     <p>Total: ${{ cart.get_total_price }}</p>
 </div>
-<form action="." method="post" class="order-form">
+<form action="." method="post" class="order-form sign-up">
     {{ form.as_p }}
     <p><input type="submit" value="Place order"></p>
     {% csrf_token %}
 </form>
+</div>
 {% endblock %}

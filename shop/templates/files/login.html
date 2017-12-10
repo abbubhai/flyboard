@@ -2,21 +2,18 @@
 {% block content %}
 
 <div class="container">
+<br/>
     {% if form.errors %}
-        <p>Your username and password didn't match. Please try again.</p>
+        <p class="alert alert-danger">Your username and password didn't match. Please try again.</p>
     {% endif %}
 {% if next %}
     {% if user.is_authenticated %}
-    <p>Your account doesn't have access to this page. To proceed,
+    <p class=".alert-warning">Your account doesn't have access to this page. To proceed,
     please login with an account that has access.</p>
     {% else %}
     <p>Please login to see this page.</p>
     {% endif %}
 {% endif %}
-</div>
-
-
-
 
 <div class="wrapper">
     <form class="form-signin" method="post" action="{% url 'shop:login' %}">
@@ -32,5 +29,12 @@
     </form>
 
   </div>
-{% endblock %}
+    <div class="social">
+        <ul>
+            <li class="facebook"><a href="{% url "social:begin" "facebook"
+            %}"><i class="fa fa-facebook-official" aria-hidden="true"></i> Sign in with Facebook</a></li>
+        </ul>
+    </div>
 
+    </div>
+{% endblock %}

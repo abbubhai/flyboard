@@ -1,6 +1,7 @@
 from celery import task
 from django.core.mail import send_mail
 from .models import Order
+from twilio.rest import Client
 @task
 def order_created(order_id):
     """
@@ -16,4 +17,5 @@ def order_created(order_id):
                           message,
                           'admin@myshop.com',
                           [order.email])
+
     return mail_sent

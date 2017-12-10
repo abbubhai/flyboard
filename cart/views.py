@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from shop.models import Product
 from .cart import Cart
 from .temp import CartAddProductForm
+from shop.converter import convert
 
 @require_POST
 @login_required
@@ -28,8 +29,16 @@ def cart_remove(request, product_id):
 @login_required
 def cart_detail(request):
     cart = Cart(request)
+    conv = ['GBP', 'INR', 'EUR']
+
+
+
     for item in cart:
         item['update_quantity_form'] = CartAddProductForm(
             initial={'quantity': item['quantity'],
                      'update': True})
-    return render(request, 'cart/detail.html', {'cart': cart})
+
+    temp = {'cart': cart}
+
+
+    return render(request, 'cart/detail.html', temp)

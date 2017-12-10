@@ -1,4 +1,5 @@
 from django.db import models
+from .converter import convert
 
 # Create your models here.
 from django.db import models
@@ -33,3 +34,7 @@ class Product(models.Model):
 
     def get_absolute_url(self):
         return reverse('shop:product_detail', args=[self.id, self.slug])
+
+    def get_price(self,f):
+        val = convert(self.price, "USD", str(f))
+        return float(val(len(val) - 1))
